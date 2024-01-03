@@ -72,6 +72,18 @@ export default defineManifestConfig({
   'h5': {
     darkmode: true,
     themeLocation: 'theme.json',
+    router: {
+      mode: "hash",
+      base: "./"
+    },
+    optimization: {
+      treeShaking: {
+        enable: true
+      }
+    },
+    devServer: {
+      https: true,
+    },
   },
   'uniStatistics': {
     enable: false,

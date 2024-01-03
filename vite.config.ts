@@ -6,6 +6,7 @@ import UniHelperLayouts from '@uni-helper/vite-plugin-uni-layouts'
 import UniHelperComponents from '@uni-helper/vite-plugin-uni-components'
 import AutoImport from 'unplugin-auto-import/vite'
 import UnoCSS from 'unocss/vite'
+import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -34,5 +35,20 @@ export default defineConfig({
     // https://github.com/antfu/unocss
     // see unocss.config.ts for config
     UnoCSS(),
+
+    // https://github.com/antfu/vite-plugin-pwa
+    VitePWA({
+      registerType: 'autoUpdate',
+      injectRegister: null,
+      strategies: 'generateSW',
+      manifest: {
+        name: '测试',
+        short_name: '测试',
+        theme_color: '#ffffff',
+      },
+      devOptions: {
+        // enabled: true,
+      }
+    }),
   ],
 })
