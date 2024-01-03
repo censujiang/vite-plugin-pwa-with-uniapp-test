@@ -1,10 +1,7 @@
 <script setup lang="ts">
-//#ifdef H5
-// import registerPageAnimation from '@/uni_modules/zy-h5-page-animation/js_sdk/index';
-import { useRegisterSW } from 'virtual:pwa-register/vue'
-//#endif
-onLaunch(() => {
+onLaunch(async () => {
   //#ifdef H5
+  const { useRegisterSW } = await import('virtual:pwa-register/vue')
   useRegisterSW({
     immediate: true,
   })
